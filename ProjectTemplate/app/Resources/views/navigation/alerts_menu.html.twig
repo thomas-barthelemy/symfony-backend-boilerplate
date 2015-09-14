@@ -1,0 +1,44 @@
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-alerts">
+        {% include ':navigation/itemTemplates:alert_menu_item.html.twig' with
+        {
+            'url': '#',
+            'title': 'New Comment',
+            'date': '4 minutes ago',
+        }
+        %}
+        {% include ':navigation/itemTemplates:alert_menu_item.html.twig' with
+        {
+        'url': '#',
+        'title': '3 New Followers',
+        'date': '12 minutes ago',
+        'icon': 'twitter'
+        }
+        %}
+        {% include ':navigation/itemTemplates:alert_menu_item.html.twig' with
+        {
+        'url': '#',
+        'title': 'Message Sent',
+        'date': '20 minutes ago',
+        'icon': 'envelope-o'
+        }
+        %}
+        {% include ':navigation/itemTemplates:alert_menu_item.html.twig' with
+        {
+        'url': '#',
+        'title': 'Task completed',
+        'date': '23 minutes ago',
+        'icon': 'tasks'
+        }
+        %}
+        <li>
+            <a class="text-center" href="#">
+                <strong>See All Alerts</strong>
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+    </ul>
+</li>

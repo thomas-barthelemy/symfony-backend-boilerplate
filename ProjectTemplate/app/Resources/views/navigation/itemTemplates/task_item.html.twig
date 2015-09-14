@@ -1,0 +1,28 @@
+{#
+    Possible status (from bootstrap):
+    success, info, warning, danger
+#}
+{% if status is not defined %}
+{% set status = 'info' %}
+{% endif %}
+
+<li>
+    <a href="{{ url }}">
+        <div>
+            <p>
+                <strong>{{ title }}</strong>
+                <span class="pull-right text-muted">{{ progress }}% Complete</span>
+            </p>
+
+            <div class="progress progress-striped active">
+                <div class="progress-bar progress-bar-{{- status }}"
+                     role="progressbar" aria-valuenow="{{ progress }}"
+                     aria-valuemin="0" aria-valuemax="100"
+                     style="width: {{ progress }}%">
+                    <span class="sr-only">{{ progress }}% Complete (success)</span>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li class="divider"></li>

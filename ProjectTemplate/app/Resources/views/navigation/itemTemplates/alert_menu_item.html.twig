@@ -1,0 +1,15 @@
+{% if icon is not defined %}
+    {% set icon = 'bell-o' %}
+{% endif %}
+
+
+<li>
+    <a href="{{ url }}">
+        <div>
+            <i class="fa fa-{{ icon }} fa-fw"></i>
+            {{ title }}
+            <span class="pull-right text-muted small">{{ date }}</span>
+        </div>
+    </a>
+</li>
+<li class="divider"></li>

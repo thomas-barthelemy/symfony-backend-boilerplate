@@ -1,0 +1,75 @@
+<div class="navbar-default sidebar" role="navigation" xmlns="http://www.w3.org/1999/html">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+
+            {% include ':navigation/itemTemplates:search_menu_item.html.twig' %}
+
+            <li>
+                <a href="{{ path('homepage') }}"><i class="fa fa-dashboard fa-fw"></i>
+                    {{ "app.sample.homepage.title"|trans }}
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-code fa-fw"></i>
+                    Page Samples
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{ path('app_sample_tables') }}"><i class="fa fa-table fa-fw"></i>
+                            Tables
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_sample_forms') }}"><i class="fa fa-edit fa-fw"></i>
+                            Forms
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-wrench fa-fw"></i>
+                            UI Elements
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-third-level">
+                            <li>
+                                <a href="{{ path('app_sample_panels') }}">Panels and Wells</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('app_sample_buttons') }}">Buttons</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('app_sample_notifications') }}">Notifications</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('app_sample_typography') }}">Typography</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('app_sample_icons') }}"> Icons</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('app_sample_grid') }}">Grid</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li class="active">
+                        <a href="#">
+                            <i class="fa fa-files-o fa-fw"></i>
+                            Sample Pages
+                            <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li>
+                                <a href="{{ path('webridge_user_default_login') }}">
+                                    Login Page
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>

@@ -1,0 +1,46 @@
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-messages">
+        {% include ':navigation/itemTemplates:message_item.html.twig' with
+            {
+                'url': '#',
+                'name': 'John smith',
+                'date': 'Yesterday',
+                'message': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...'
+            }
+        %}
+        {% include ':navigation/itemTemplates:message_item.html.twig' with
+            {
+                'url': '#',
+                'name': 'John smith',
+                'date': 'Yesterday',
+                'message': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...'
+            }
+        %}
+        {% include ':navigation/itemTemplates:message_item.html.twig' with
+            {
+                'url': '#',
+                'name': 'John smith',
+                'date': 'Yesterday',
+                'message': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...'
+            }
+        %}
+        {% include ':navigation/itemTemplates:message_item.html.twig' with
+            {
+                'url': '#',
+                'name': 'John smith',
+                'date': 'Yesterday',
+                'message': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...'
+            }
+        %}
+        <li class="divider"></li>
+        <li>
+            <a class="text-center" href="#">
+                <strong>Read All Messages</strong>
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+    </ul>
+</li>

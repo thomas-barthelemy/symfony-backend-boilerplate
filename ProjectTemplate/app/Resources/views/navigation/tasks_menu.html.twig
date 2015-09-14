@@ -1,0 +1,46 @@
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-tasks">
+        {% include ':navigation/itemTemplates:task_item.html.twig' with
+        {
+            'url': '#',
+            'title': 'Task 1',
+            'progress': 100,
+            'status': 'success'
+        }
+        %}
+        {% include ':navigation/itemTemplates:task_item.html.twig' with
+        {
+            'url': '#',
+            'title': 'Task 2',
+            'progress': 20,
+            'status': 'info'
+        }
+        %}
+        {% include ':navigation/itemTemplates:task_item.html.twig' with
+        {
+        'url': '#',
+        'title': 'Task 3',
+        'progress': 50,
+        'status': 'warning'
+        }
+        %}
+        {% include ':navigation/itemTemplates:task_item.html.twig' with
+        {
+        'url': '#',
+        'title': 'Task 3',
+        'progress': 10,
+        'status': 'danger'
+        }
+        %}
+        <li>
+            <a class="text-center" href="#">
+                <strong>See All Tasks</strong>
+                <i class="fa fa-angle-right"></i>
+            </a>
+        </li>
+    </ul>
+    <!-- /.dropdown-tasks -->
+</li>
