@@ -1,7 +1,7 @@
-{% if app.request.locale == 'en' %}
-    {% set countryCode = 'gb' %}
+{% if app.request.locale is not empty %}
+    {% set countryCode = app.request.locale | split('-') | last | lower %}
 {% else %}
-    {% set countryCode = app.request.locale %}
+    {% set countryCode = 'gb' %}
 {% endif %}
 
 <li class="dropdown">
@@ -14,7 +14,7 @@
             <a href="{{
                 path(
                     app.request.attributes.get('_route'),
-                    {'_locale': 'en'}
+                    {'_locale': 'en-GB'}
                 )
             }}">
                 <span class="flag-icon flag-icon-gb"></span>
@@ -25,7 +25,7 @@
             <a href="{{
                 path(
                     app.request.attributes.get('_route'),
-                    {'_locale': 'cn'}
+                    {'_locale': 'zh-CN'}
                 )
             }}">
                 <span class="flag-icon flag-icon-cn"></span>
@@ -36,7 +36,7 @@
             <a href="{{
                 path(
                     app.request.attributes.get('_route'),
-                    {'_locale': 'fr'}
+                    {'_locale': 'fr-FR'}
                 )
             }}">
                 <span class="flag-icon flag-icon-fr"></span>
