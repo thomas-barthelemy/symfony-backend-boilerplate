@@ -32,5 +32,7 @@ $(function() {
     }).addClass('active').parent().parent().addClass('in').parent();
     if (element.is('li')) {
         element.addClass('active');
+
+        element.parents('.nav-second-level').addClass('in');
     }
 });
