@@ -38,7 +38,8 @@
         "fortawesome/font-awesome": "4.4.*",
         "twbs/bootstrap": "3.3.*",
         "components/jquery": "2.1.*",
-        "onokumus/metismenu": "2.1.*"
+        "onokumus/metismenu": "2.1.*",
+        "components/flag-icon-css": "0.8.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

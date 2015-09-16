@@ -91,6 +91,21 @@ assetic:
         font_awesome_woff:
             inputs: '%kernel.root_dir%/../vendor/fortawesome/font-awesome/fonts/fontawesome-webfont.woff'
             output: 'fonts/fontawesome-webfont.woff'
+        flag_icon_css:
+            inputs: '%kernel.root_dir%/../vendor/components/flag-icon-css/css/flag-icon.min.css'
+            output: 'css/flag-icon.min.css'
+        flag_icon_svg_cn:
+            inputs: '%kernel.root_dir%/../vendor/components/flag-icon-css/flags/4x3/cn.svg'
+            output: 'flags/4x3/cn.svg'
+        flag_icon_svg_fr:
+            inputs: '%kernel.root_dir%/../vendor/components/flag-icon-css/flags/4x3/fr.svg'
+            output: 'flags/4x3/fr.svg'
+        flag_icon_svg_kh:
+            inputs: '%kernel.root_dir%/../vendor/components/flag-icon-css/flags/4x3/kh.svg'
+            output: 'flags/4x3/kh.svg'
+        flag_icon_svg_en:
+            inputs: '%kernel.root_dir%/../vendor/components/flag-icon-css/flags/4x3/gb.svg'
+            output: 'flags/4x3/gb.svg'
 
 # Doctrine Configuration
 doctrine:

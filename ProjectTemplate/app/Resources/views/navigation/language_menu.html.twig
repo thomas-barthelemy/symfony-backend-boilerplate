@@ -1,0 +1,47 @@
+{% if app.request.locale == 'en' %}
+    {% set countryCode = 'gb' %}
+{% else %}
+    {% set countryCode = app.request.locale %}
+{% endif %}
+
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <span class="flag-icon flag-icon-{{ countryCode }}"></span>
+        <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu">
+        <li>
+            <a href="{{
+                path(
+                    app.request.attributes.get('_route'),
+                    {'_locale': 'en'}
+                )
+            }}">
+                <span class="flag-icon flag-icon-gb"></span>
+                English
+            </a>
+        </li>
+        <li>
+            <a href="{{
+                path(
+                    app.request.attributes.get('_route'),
+                    {'_locale': 'cn'}
+                )
+            }}">
+                <span class="flag-icon flag-icon-cn"></span>
+                中文
+            </a>
+        </li>
+        <li>
+            <a href="{{
+                path(
+                    app.request.attributes.get('_route'),
+                    {'_locale': 'fr'}
+                )
+            }}">
+                <span class="flag-icon flag-icon-fr"></span>
+                Français
+            </a>
+        </li>
+    </ul>
+</li>
