@@ -3,7 +3,7 @@
 
 ## Define some app-specific stuff to be used later during provisioning: ##
 app_vars = {
-  APPNAME: 'ProjectTemplate',
+  APPNAME: 'project',
   DBNAME: 'symfony',
   DBUSER: 'vagrant',
   DBPASSWORD: 'vagrant',
@@ -31,7 +31,7 @@ Vagrant.configure(2) do |config|
       ansible.verbose = verbosity_arg
     end
   else
-    config.vm.synced_folder "./", "/vagrant", type: "smb", mount_options: ['ip=192.168.50.1'] #host side of :private_network
+    config.vm.synced_folder "./", "/vagrant", type: "smb", mount_options: ['ip=192.168.95.1'] #host side of :private_network
     extra_vars_arg = '{' + app_vars.map{|k,v| '"' + k.to_s + '":"' + v.to_s + '"'}.join(',') + '}'
 
     config.vm.provision :shell, :inline => <<-END
@@ -49,11 +49,11 @@ PYTHONUNBUFFERED=1 ansible-playbook --connection=local -i "[default] $(hostname)
 END
   end
   config.vm.network "forwarded_port", guest: 80, host: 9501
-  config.vm.network "private_network", ip: "192.168.95.01"
+  config.vm.network "private_network", ip: "192.168.95.2"
   config.vm.provider "virtualbox" do |v|
     v.memory = 2048
   end
 
   ## Starting VM Services
-  config.vm.provision :shell, run: "always", inline: "service php5-fpm start"
+  config.vm.provision :shell, run: "always", inline: "service php5-fpm restart"
 end

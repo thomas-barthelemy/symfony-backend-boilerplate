@@ -6,8 +6,8 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en-GB
-    app_locales: |en-GB|km-KH|zh-CN|fr-FR
+    locale: en-US
+    app_locales: en-US|km-KH|zh-CN|fr-FR
 
 framework:
     #esi:             ~
@@ -104,8 +104,8 @@ assetic:
             inputs: '%kernel.root_dir%/../vendor/components/flag-icon-css/flags/4x3/kh.svg'
             output: 'flags/4x3/kh.svg'
         flag_icon_svg_en:
-            inputs: '%kernel.root_dir%/../vendor/components/flag-icon-css/flags/4x3/gb.svg'
-            output: 'flags/4x3/gb.svg'
+            inputs: '%kernel.root_dir%/../vendor/components/flag-icon-css/flags/4x3/us.svg'
+            output: 'flags/4x3/us.svg'
 
 # Doctrine Configuration
 doctrine:
