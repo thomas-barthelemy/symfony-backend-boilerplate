@@ -48,12 +48,12 @@ PYTHONUNBUFFERED=1 ansible-playbook --connection=local -i "[default] $(hostname)
 --extra-vars='#{ extra_vars_arg }' #{ verbosity_arg.empty? ? '' : '-'+ansible_verbosity } /vagrant/provisioning/site.yml
 END
   end
-  config.vm.network "forwarded_port", guest: 80, host: 9501
+  config.vm.network "forwarded_port", guest: 80, host: 9502
   config.vm.network "private_network", ip: "192.168.95.2"
   config.vm.provider "virtualbox" do |v|
     v.memory = 2048
   end
 
   ## Starting VM Services
-  config.vm.provision :shell, run: "always", inline: "service php5-fpm restart"
+  config.vm.provision :shell, run: "always", inline: "service php7.0-fpm restart"
 end
