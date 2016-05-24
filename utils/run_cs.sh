@@ -1,18 +1,30 @@
 #!/bin/bash
-if [[ `uname` = *"NT"* ]]; then
-    if [ "$1" = '-f' ]; then
-        echo 'Running code-sniffer fix'
-        vagrant ssh -c 'bash "/vagrant/project/bin/php-cs-fixer fix /vagrant/project/ --config=sf23 -vv"'
-    else
-        echo 'Running code-sniffer (use -f to fix)...'
-        vagrant ssh -c 'bash "/vagrant/project/bin/phpcs --standard=PSR2 /vagrant/project/src -n"'
-    fi
+
+# Params and default values
+: ${CONTAINER_NAME:='backend_dev_web'}
+
+# Checking if docker is available and running
+hash docker > /dev/null && \
+    docker ps 2>/dev/null | grep ${CONTAINER_NAME} > /dev/null && \
+    HAS_DOCKER=1 || HAS_DOCKER=0
+
+if [[ ${HAS_DOCKER} -eq 1 ]]; then
+    PROJECT_PATH='/var/app'
 else
-    if [ "$1" = '-f' ]; then
-        echo 'Running code-sniffer fix'
-        vagrant ssh -c '/vagrant/project/bin/php-cs-fixer fix /vagrant/project/ --config=sf23 -vv'
-    else
-        echo 'Running code-sniffer (use -f to fix)...'
-        vagrant ssh -c '/vagrant/project/bin/phpcs --standard=PSR2 /vagrant/project/src -n'
-    fi
+    PROJECT_PATH='/vagrant/project'
+fi
+
+# Checking param
+if [ "$1" = '-f' ]; then
+    FIX_CMD="php-cs-fixer fix ${PROJECT_PATH} --config=sf23 -vv"
+else
+    FIX_CMD="phpcs --standard=PSR2 ${PROJECT_PATH}/src -n"
+fi
+
+if [[ ${HAS_DOCKER} -eq 1 ]]; then
+    echo "(Docker) Running ${FIX_CMD}"
+    docker exec -it ${CONTAINER_NAME} /var/app/bin/${FIX_CMD}
+else
+    echo "(Vagrant) Running ${FIX_CMD}"
+    vagrant ssh -c "bash /vagrant/project/bin/${FIX_CMD}"
 fi
