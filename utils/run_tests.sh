@@ -28,6 +28,11 @@ hash docker &> /dev/null && \
     docker ps 2>/dev/null | grep ${CONTAINER_NAME} > /dev/null && \
     HAS_DOCKER=1 || HAS_DOCKER=0
 
+if [[ ${USER} != 'vagrant' && ${HAS_DOCKER} -eq 0 ]]; then
+    vagrant ssh -c "bash /vagrant/utils/run_tests.sh ${ORIGINAL_PARAM}"
+    exit
+fi
+
 param="-c app";
 
 while [ "$1" != "" ]; do
@@ -47,7 +52,7 @@ while [ "$1" != "" ]; do
                                         break
                                     done
                                 else
-                                    for file in $( find ./ -iname "$1*" | grep "Test\.php$" ); do
+                                    for file in $( find /vagrant/project/src -iname "$1*" | grep "Test\.php$" ); do
                                         param="$param --filter $(basename $file .php) $file"
                                         echo "Found matching test file: $file"
                                         break
@@ -62,16 +67,12 @@ while [ "$1" != "" ]; do
 done
 
 if [[ ${HAS_DOCKER} -eq 1 ]]; then
-     echo "(Docker) Running phpunit $(echo ${param} | tr -d '\r')"
+    echo "(Docker) Running phpunit $(echo ${param} | tr -d '\r')"
     docker exec -it ${CONTAINER_NAME} bash -c "cd /var/app && /var/app/bin/phpunit $(echo ${param} | tr -d '\r')"
     exit
 fi
 
 
-if [[ ${USER} != 'vagrant' ]]; then
-    echo "(Vagrant) Running phpunit ${param}"
-    vagrant ssh -- -t "bash /vagrant/utils/run_tests.sh $@"
-else
-    cd /vagrant/project
-    bin/phpunit ${param}
-fi
+echo "(Vagrant) Running phpunit ${param}"
+cd /vagrant/project
+bin/phpunit ${param}
