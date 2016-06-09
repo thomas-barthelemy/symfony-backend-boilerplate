@@ -26,5 +26,5 @@ if [[ ${HAS_DOCKER} -eq 1 ]]; then
     docker exec -it ${CONTAINER_NAME} /var/app/bin/${FIX_CMD}
 else
     echo "(Vagrant) Running ${FIX_CMD}"
-    vagrant ssh -c "bash /vagrant/project/bin/${FIX_CMD}"
+    vagrant ssh -- -t "bash /vagrant/project/bin/${FIX_CMD}"
 fi

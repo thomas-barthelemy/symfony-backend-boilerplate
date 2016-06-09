@@ -29,7 +29,7 @@ hash docker &> /dev/null && \
     HAS_DOCKER=1 || HAS_DOCKER=0
 
 if [[ ${USER} != 'vagrant' && ${HAS_DOCKER} -eq 0 ]]; then
-    vagrant ssh -c "bash /vagrant/utils/run_tests.sh ${ORIGINAL_PARAM}"
+    vagrant ssh -- -t "bash /vagrant/utils/run_tests.sh ${ORIGINAL_PARAM}"
     exit
 fi
 

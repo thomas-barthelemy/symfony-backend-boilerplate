@@ -13,5 +13,5 @@ if [[ ${HAS_DOCKER} -eq 1 ]]; then
     docker exec -it ${CONTAINER_NAME} php /var/app/bin/console $@
 else
     echo "(Vagrant) Running: php bin/console $@"
-    vagrant ssh -c "cd /vagrant/project && php ./bin/console $@"
+    vagrant ssh -- -t "cd /vagrant/project && php ./bin/console $@"
 fi

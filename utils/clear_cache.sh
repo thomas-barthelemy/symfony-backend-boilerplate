@@ -19,5 +19,5 @@ if [[ ${HAS_DOCKER} -eq 1 ]]; then
         php /var/app/bin/console cache:clear --env=${CLEAR_ENV}
 else
     echo "(Vagrant) Clearing symfony ${CLEAR_ENV} cache... You can specify in parameter the environment to clear)"
-    vagrant ssh -c "php /vagrant/project/bin/console cache:clear --env=${CLEAR_ENV}"
+    vagrant ssh -- -t "php /vagrant/project/bin/console cache:clear --env=${CLEAR_ENV}"
 fi
