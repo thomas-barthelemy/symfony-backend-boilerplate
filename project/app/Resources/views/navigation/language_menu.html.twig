@@ -1,3 +1,4 @@
+{% set params = app.request.get('_route_params') %}
 {% if app.request.locale is not empty %}
     {% set countryCode = app.request.locale | split('-') | last | lower %}
 {% else %}
@@ -14,7 +15,7 @@
             <a href="{{
                 path(
                     app.request.attributes.get('_route'),
-                    {'_locale': 'en-US'}
+                    params | merge({'_locale': 'en-US'})
                 )
             }}">
                 <span class="flag-icon flag-icon-us"></span>
@@ -25,7 +26,7 @@
             <a href="{{
                 path(
                     app.request.attributes.get('_route'),
-                    {'_locale': 'zh-CN'}
+                    params | merge({'_locale': 'zh-CN'})
                 )
             }}">
                 <span class="flag-icon flag-icon-cn"></span>
@@ -36,7 +37,7 @@
             <a href="{{
                 path(
                     app.request.attributes.get('_route'),
-                    {'_locale': 'fr-FR'}
+                    params | merge({'_locale': 'fr-FR'})
                 )
             }}">
                 <span class="flag-icon flag-icon-fr"></span>
