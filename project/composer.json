@@ -36,7 +36,7 @@
 	    "friendsofsymfony/user-bundle": "dev-master",
         "knplabs/knp-paginator-bundle": "~2.5",
         "mashape/unirest-php": "3.*",
-        "jms/translation-bundle": "dev-master",
+        "jms/translation-bundle": "~1.2,>=1.2.3",
         "fortawesome/font-awesome": "4.5.*",
         "twbs/bootstrap": "3.3.*",
         "components/jquery": "2.2.*",
@@ -46,7 +46,8 @@
     "require-dev": {
         "sensio/generator-bundle": "~3.0",
         "we-bridge/functionnal-test-helpers": ">=0.0.9",
-        "liip/functional-test-bundle": "~1.5"
+        "liip/functional-test-bundle": "~1.5",
+        "fabpot/php-cs-fixer": "^1.11"
     },
     "scripts": {
         "post-root-package-install": [
