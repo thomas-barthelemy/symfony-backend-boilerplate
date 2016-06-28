@@ -2,12 +2,16 @@
 - name: setup PHP Composer
   shell: creates=composer.phar chdir={{ APPCOMMONDIR }}
     curl -sS https://getcomposer.org/installer | php
-  sudo_user: vagrant
+  become: true
+  become_user: vagrant
+  become_method: sudo
 
 - name: setup framework installer
   shell: creates=symfony.phar chdir={{ APPCOMMONDIR }}
     curl -LsS http://symfony.com/installer > symfony.phar
-  sudo_user: vagrant
+  become: true
+  become_user: vagrant
+  become_method: sudo
 
 - name: make framework installer executable
   file: path={{ APPCOMMONDIR }}/symfony.phar mode='ugo+x'

@@ -1,9 +1,10 @@
 ---
 - hosts: all
-  sudo: yes
+  become: true
+  become_user: root
+  become_method: sudo
   vars:
     APPDIR: "/vagrant/{{ APPNAME }}"
-    when: APPNAME is defined
     APPWEBROOT: "{{ APPDIR }}/web"
     when: APPNAME is defined
     APPCOMMONDIR: "/vagrant"
