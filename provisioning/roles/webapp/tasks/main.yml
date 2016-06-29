@@ -41,4 +41,4 @@
   become_method: sudo
   become_user: vagrant
   command: creates={{ APPDIR }}/vendor/ chdir={{ APPDIR }}
-    composer install --quiet --no-ansi --no-interaction
+    composer install --quiet --no-ansi --no-interaction --prefer-dist

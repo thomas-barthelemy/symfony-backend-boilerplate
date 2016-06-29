@@ -13,7 +13,7 @@
     - php5-xdebug
     - php5-intl
     - php5-zip
-
+    - zip
   notify:
     restart Apache
 
