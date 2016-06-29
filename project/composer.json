@@ -47,7 +47,7 @@
         "sensio/generator-bundle": "~3.0",
         "we-bridge/functionnal-test-helpers": ">=0.0.9",
         "liip/functional-test-bundle": "~1.5",
-        "fabpot/php-cs-fixer": "^1.11"
+        "friendsofphp/php-cs-fixer": "^1.11"
     },
     "scripts": {
         "post-root-package-install": [
