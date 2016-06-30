@@ -55,7 +55,7 @@ docker run \
     -e COMPOSER_HOME=/root/.composer \
     -e SENSIOLABS_ENABLE_NEW_DIRECTORY_STRUCTURE=true \
     --link ${CONTAINER_DB_NAME}:db \
-    webridge/composer \
+    webridge/composer:php7 \
     install --prefer-dist
 
 ####################################
