@@ -12,6 +12,7 @@ Included
  - Unirest
  - Font Awesome
  - PHPUnit
+ - SASS with PHPSCSS
  
 This is simple backend boilerplate giving your a simple app
 with a left menu and top bar, translation, and sample of most
