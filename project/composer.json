@@ -41,7 +41,8 @@
         "twbs/bootstrap": "3.3.*",
         "components/jquery": "2.2.*",
         "onokumus/metismenu": "2.4.*",
-        "components/flag-icon-css": "~1.0"
+        "components/flag-icon-css": "~1.0",
+        "leafo/scssphp": "^0.6.5"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",

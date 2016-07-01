@@ -20,7 +20,7 @@ class SampleController extends Controller
 
     /**
      * @Route("/sample/tables")
-     * @Template
+     * @Template("AppBundle:sample:tables.html.twig")
      */
     public function tablesAction()
     {
