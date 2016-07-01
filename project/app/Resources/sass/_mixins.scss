@@ -1,0 +1,22 @@
+@mixin radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin panel-style($panel-color, $hover-color) {
+    border-color: $panel-color;
+
+    .panel-heading {
+        border-color: $panel-color;
+        color: #fff;
+        background-color: $panel-color;
+    }
+    a {
+        color: $panel-color;
+
+        &:hover {
+            color: $hover-color;
+        }
+    }
+}

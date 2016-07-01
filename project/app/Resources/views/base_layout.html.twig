@@ -11,11 +11,16 @@
         {% stylesheets filter='cssrewrite'
             "@bootstrap_min_css"
             "@metis_menus_css"
-            "@sb_admin_css"
             "@font_awesome_css"
             "@flag_icon_css"
         %}
-            <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
+            <link rel="stylesheet" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+
+        {% stylesheets filter="scssphp"
+            "@sb_admin_css"
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}"/>
         {% endstylesheets %}
     {% endblock %}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
