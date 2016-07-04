@@ -1,7 +1,7 @@
 #!/bin/bash
 
-: ${WEB_PORT:=9290}
-: ${DB_PORT:=9291}
+: ${WEB_PORT:=9390}
+: ${DB_PORT:=9391}
 : ${COMPOSER_HOME:=${HOME}/.composer}
 : ${CONTAINER_WEB_NAME:='backend_dev_web'}
 : ${CONTAINER_DB_NAME:='backend_dev_db'}
