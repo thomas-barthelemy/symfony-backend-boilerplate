@@ -1,11 +1,15 @@
 ---
 - name: initialize application
-  sudo_user: vagrant
+  become: true
+  become_method: sudo
+  become_user: vagrant
   # include: init_app_via_composer.yml
   include: init_app_via_installer.yml
 
 - name: create parameters.yml based on parameters.yml.dist
-  sudo_user: vagrant
+  become: true
+  become_method: sudo
+  become_user: vagrant
   command: creates={{ APPDIR }}/app/config/parameters.yml
     cp {{ APPDIR }}/app/config/parameters.yml.dist {{ APPDIR }}/app/config/parameters.yml
 
@@ -33,6 +37,8 @@
   copy: src=Symfony.gitignore dest={{ APPDIR }}/.gitignore force=no
 
 - name: install app dependencies (composer install)
-  sudo_user: vagrant
+  become: true
+  become_method: sudo
+  become_user: vagrant
   command: creates={{ APPDIR }}/vendor/ chdir={{ APPDIR }}
     composer install --quiet --no-ansi --no-interaction
