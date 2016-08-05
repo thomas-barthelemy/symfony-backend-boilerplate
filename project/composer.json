@@ -1,6 +1,6 @@
 {
-    "name": "vagrant/delivery-web.install",
-    "license": "proprietary",
+    "name": "symfony-backend-boilerplate",
+    "license": "",
     "type": "project",
     "autoload": {
         "psr-4": {
@@ -10,13 +10,6 @@
             "app/AppKernel.php"
         ]
     },
-	"repositories":
-    [
-        {
-            "type": "vcs",
-            "url": "https://github.com/we-bridge/symfony2-test-helpers"
-        }
-    ],
     "require": {
         "php": ">=5.3.9",
         "symfony/symfony": "3.*",
