@@ -55,7 +55,7 @@ docker run \
     -e COMPOSER_HOME=/root/.composer \
     -e SENSIOLABS_ENABLE_NEW_DIRECTORY_STRUCTURE=true \
     --link ${CONTAINER_DB_NAME}:db \
-    webridge/composer \
+    webridge/composer:php5 \
     install --prefer-dist
 
 ####################################
@@ -68,7 +68,7 @@ docker run -d \
     -p ${WEB_PORT}:80 \
     --add-host=archive.ubuntu.com:127.0.0.1 \
     --link ${CONTAINER_DB_NAME}:db \
-    webridge/symfony-app:php70
+    webridge/symfony-app:php56
 
 
 #####################################
