@@ -17,3 +17,9 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    # Monolog config
+    ## Log level (log|debug|error|info|notice|warning|error|critical|alert|emergency)
+    app_log_level: error
+    ## Number of log files (1 per day) to keep. 0 to keep all.
+    app_log_max_files: 20
